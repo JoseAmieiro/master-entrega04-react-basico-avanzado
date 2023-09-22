@@ -1,34 +1,35 @@
 # 03 List
 
-## Summary
+## Resumen
 
-This example takes the _02-login_ example as a starting point.
+Este ejemplo toma como punto de partida el ejemplo _02-login_.
 
-We are going to implement a list page and link it to a detail page.
+Vamos a implementar una página de listado y enlazarla con una de detalle.
 
-That is, we will show a list of members that belong to a Github organisation.
-and when we click on a user's name we'll navigate to the detail page by passing in the
-detail page by passing in the URL the id of the selected member.
+Es decir mostraremos una lista de miembros que pertenecen a una organización
+de Github y cuando pinchemos en el nombre de un usuario navegaremos a la
+página de detalle pasando en la URL el id del miembro seleccionado.
 
-In this example we'll do a direct implementation of the list, if you
-you want to see a step by step you can consult a previous example that we have
-which shows how to create a list of users step by step.
+En este ejemplo haremos una implementación directa del listado, si
+quieres ver una paso a paso puede consultar otro ejemplo previo que tenemos
+en el que se muestra como crear una lista de usuarios paso a paso.
 
 ## Paso a Paso
 
-- First we copy the above example, and do an _npm install_.
+- Primero copiamos el ejemplo anterior, y hacemos un _npm install_
 
 ```bash
 npm install
 ```
 
-- If we want to see what kind of data we are going to handle, we can open the web browser and see what Github's Rest API returns.
+- Si queremos ver qué tipo de datos vamos a manejar, podemos abrir el navegador web y ver que devuelve la API Rest de Github.
 
 ```bash
 https://api.github.com/orgs/lemoncode/members
 ```
 
-- We are going to create an interface to have our interface typed, and modify the component that will display this listing.
+- Vamos a crearnos un interfaz para tener tipada nuestra interfaz,
+  y el modificar el componente que mostrará este listado.
 
 _./src/list.tsx_
 
@@ -54,7 +55,7 @@ export const ListPage: React.FC = () => {
 };
 ```
 
-- We are now going to load the data
+- Vamos ahora a hacer la carga de datos:
 
 _./src/list.tsx_
 
@@ -71,7 +72,7 @@ export const ListPage: React.FC = () => {
   return (
 ```
 
-- Let's check that the data is indeed being loaded:
+- Vamos a comprobar que efectivamente se están cargando los datos:
 
 _./src/list.tsx_
 
@@ -87,7 +88,7 @@ _./src/list.tsx_
   );
 ```
 
-- And now let's add a grid table showing the data:
+- Y ahora vamos a añadir una tabla con grid que muestre los datos:
 
 _./src/styles.css_
 
@@ -136,9 +137,9 @@ _./src/list.tsx_
   );
 ```
 
-- So far so good, but I want that when the user clicks on a member's name, he/she navigates to the
-  member navigates to the detail page of the application to display the token, we could first
-  first we could think of building something like this:
+- Hasta aquí bien, pero yo quiero que cuando el usuario pinche en el nombre de un
+  miembro navega a la página de detalle de la aplicación para mostrar la ficha, de
+  primeras podríamos pensar en construir algo así como:
 
 ```diff
   <td>
@@ -147,8 +148,8 @@ _./src/list.tsx_
   </td>
 ```
 
-- Another way to create the url is to use _generatePath_, but be careful in version 5
-  this did do the encoding of the parameters, in version 6 it didn't (https://github.com/remix-run/react-router/issues/7428)
+- Otra forma de crear la url es usando _generatePath_, pero ojo en la versión 5
+  esto si hacía el encoding de los parámetros, en la 6 no (https://github.com/remix-run/react-router/issues/7428)
 
 _./src/list.tsx_
 
@@ -167,28 +168,30 @@ _./src/list.tsx_
   </td>
 ```
 
-What is the impact of not encoding? If you want to test it, replace the code inside the useEffect with this one;
+¿En qué impactar que no haga encoding? Si quieres hacer la prueba sustituye el código dentro del useEffect por este;
 
 ```tsx
 setMembers([{ id: "2", login: "a/b", avatar_url: "" }]);
 ```
 
-> In the architecture part we will learn how to remove "magic strings" from our application.
-> harcoding url all around our app is not a good idea.
+> En la parte de arquitectura aprenderemos a quitar "strings mágicos" de nuestra
+> aplicación, ir harcodeando urls por nuestras páginas no es buena idea.
 
-- Very interesting, but how can I read the id of the user I am receiving in the URL parameter?
+- Muy interesante, ¿Pero cómo puedo leer el id del usuario que estoy
+  recibiendo por el parámetro de la URL?
 
-First we are going to define the parameter in the url of our router.
+Primero vamos a definir el parámetro en la url de nuestro router
 
 _./src/app.tsx_
 
 ```diff
 -  <Route path="/detail" element={<DetailPage />} />
-+  <Route path="/detail/:id" element={<DetailPage/>}/>
++  <Route path="/detail/:id" element={<DetailPage />} />
+    <DetailPage />
   </Route>
 ```
 
-Using the _useParams_ hooks.
+Usando el hook _useParams_.
 
 _./src/detail.tsx_
 
@@ -210,3 +213,14 @@ export const DetailPage: React.FC = () => {
   );
 };
 ```
+
+# ¿Te apuntas a nuestro máster?
+
+Si te ha gustado este ejemplo y tienes ganas de aprender Front End
+guiado por un grupo de profesionales ¿Por qué no te apuntas a
+nuestro [Máster Front End Online Lemoncode](https://lemoncode.net/master-frontend#inicio-banner)? Tenemos tanto edición de convocatoria
+con clases en vivo, como edición continua con mentorización, para
+que puedas ir a tu ritmo y aprender mucho.
+
+Y si tienes ganas de meterte una zambullida en el mundo _devops_
+apúntate nuestro [Bootcamp devops online Lemoncode](https://lemoncode.net/bootcamp-devops#bootcamp-devops/inicio)
