@@ -4,6 +4,7 @@
   grid-template-rows: 20px;
   grid-auto-rows: 80px;
   grid-gap: 10px 5px;
+  margin-top: 20px;
 }
 
 .list-header {
@@ -14,4 +15,8 @@
 
 .list-user-list-container > img {
   width: 80px;
+}
+
+input {
+  margin: 10px;
 }

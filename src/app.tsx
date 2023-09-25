@@ -4,6 +4,7 @@ import { LoginPage } from "./login";
 import { ListPage } from "./list";
 import { DetailPage } from "./detail";
 
+
 export const App = () => {
   return (
     <Router>
