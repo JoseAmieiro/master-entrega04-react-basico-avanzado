@@ -19,7 +19,7 @@ export const FilterContextProvider: React.FC <Props> = (props) => {
 
     return (
         <FilterContext.Provider value={{ organizationName, setOrganizationName }}>
-            {organizationName ? props.children : null}
+            {props.children}
         </FilterContext.Provider>
     );
 };
