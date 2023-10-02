@@ -4,7 +4,6 @@
   grid-template-rows: 20px;
   grid-auto-rows: 80px;
   grid-gap: 10px 5px;
-  margin-top: 20px;
 }
 
 .list-header {
@@ -17,6 +16,37 @@
   width: 80px;
 }
 
-input {
-  margin: 10px;
+.layout-center {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-items: center;
+  margin-top: 2rem;
+}
+
+.layout-app-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr;
+}
+
+.layout-app-header {
+  color: white;
+  background-color: #007661;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 5px;
+}
+
+.list-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: darkorange;
+}
+
+.layout-app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
 }

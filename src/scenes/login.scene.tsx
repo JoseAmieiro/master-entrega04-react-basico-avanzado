@@ -1,8 +1,14 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { ProfileContext, routes } from "@/core"
+import { CenteredLayout } from "@/layouts";
 
-export const LoginPage: React.FC = () => {
-  const navigate = useNavigate();
+interface Props {
+  onLogin: (username: string) => void;
+}
+
+export const LoginScene: React.FC<Props> = (props) => {
+  const { onLogin } = props;
   const [username, setUsername] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -10,14 +16,14 @@ export const LoginPage: React.FC = () => {
     e.preventDefault();
 
     if (username === "admin" && password === "test") {
-      navigate("/list");
+      onLogin(username);
     } else {
       alert("User / password not valid, psst... admin / test");
     }
   };
 
   return (
-    <>
+    <CenteredLayout>
       <form onSubmit={handleNavigation}>
         <h2>Hello from login page</h2>
 
@@ -41,6 +47,6 @@ export const LoginPage: React.FC = () => {
 
         <button type="submit">Login</button>
       </form>
-    </>
+    </CenteredLayout>
   );
 };
