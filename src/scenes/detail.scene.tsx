@@ -9,7 +9,7 @@ interface MemberDetail {
   id: string;
   name: string;
   login: string;
-  avatar_url: string
+  avatarUrl: string
 }
 
 export const DetailScene: React.FC = () => {
@@ -26,7 +26,7 @@ export const DetailScene: React.FC = () => {
     <AppLayout>
       <h2>Hello from Detail page</h2>
       <h3>{member.login}</h3>
-        <img src={member.avatar_url} alt= {member.login} width="150px"/>
+        <img src={member.avatarUrl} alt= {member.login} width="150px"/>
         <p>Id: {member.id}</p>
         <p>Name: {member.name} </p>
       <Link to={routes.list}>Back to list page</Link>

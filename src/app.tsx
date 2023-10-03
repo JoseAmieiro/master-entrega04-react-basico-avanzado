@@ -1,15 +1,13 @@
 import React from "react";
 import { AppRouter, ProfileProvider } from "@/core";
-import { FilterContextProvider } from "./filter-context";
+import { FilterContextProvider } from "./pods/list/list.filter-context";
 
 export const App = () => {
   return (
     <ProfileProvider>
       <FilterContextProvider>
-        <AppRouter/>
+        <AppRouter />
       </FilterContextProvider>
     </ProfileProvider>
   );
 };
-
-
