@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { routes } from "@/core";
+import { routes, FilterContext } from "@/core";
 
-import { useMembers } from "./list.members-collection"; // Mirar donde va
-import { FilterContext } from "./list.filter-context"; // Mirar donde va
+import { useMembers } from "./list.hooks"; // Mirar donde va
 import { MemberEntity } from "./list.vm";
 import { ListHeader } from "./components";
 

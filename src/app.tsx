@@ -1,6 +1,5 @@
 import React from "react";
-import { AppRouter, ProfileProvider } from "@/core";
-import { FilterContextProvider } from "./pods/list/list.filter-context";
+import { AppRouter, ProfileProvider, FilterContextProvider } from "@/core";
 
 export const App = () => {
   return (
