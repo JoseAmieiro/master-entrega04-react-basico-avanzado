@@ -2,8 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { routes, FilterContext } from "@/core";
-
-import { useMembers } from "./list.hooks"; // Mirar donde va
+import { useMembers } from "./list.hooks";
 import { MemberEntity } from "./list.vm";
 import { ListHeader } from "./components";
 
@@ -36,7 +35,6 @@ export const List: React.FC<Props> = (props) => {
           </React.Fragment>
         ))}
       </div>
-      <Link to="/detail">Navigate to detail page</Link>
     </>
   )
 }
