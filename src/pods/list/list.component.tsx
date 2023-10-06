@@ -17,7 +17,7 @@ export const List: React.FC<Props> = (props) => {
   const {} = props;
   return (
     <>
-      <h2>List page</h2>
+      <h1>List page</h1>
       <input
         value={organizationName}
         onChange={(e) => {
