@@ -1,15 +1,15 @@
-export interface Member {
+export interface MemberEntityVM {
   id: string;
   login: string;
   name: string;
   company: string;
-  avatar_url: string;
+  avatarUrl: string;
 }
 
-export const createDefaultMemberDetail = (): Member => ({
+export const createDefaultMemberDetail = (): MemberEntityVM => ({
   id: "",
   login: "",
   name: "",
   company: "",
-  avatar_url: "",
+  avatarUrl: "",
 });

@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Member } from "./detail.vm";
 import { routes } from "@/core";
+import { MemberEntityVM } from "./detail.vm";
 
 
 interface Props {
-  member: Member;
+  member: MemberEntityVM;
 }
 
 export const Detail: React.FC<Props> = (props) => {
   const { member } = props;
   return (
     <div>
-      <img src={member.avatar_url} />
+      <img src={member.avatarUrl} />
       <p> id: {member.id}</p>
       <p> login: {member.login}</p>
       <p> name: {member.name}</p>

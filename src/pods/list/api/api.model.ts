@@ -14,7 +14,6 @@ export interface MemberEntity {
   organizations_url: string;
   repos_url: string;
   events_url: string;
-  received_events_url: string;
   type: string;
   site_admin: boolean;
 }
