@@ -11,7 +11,7 @@ interface Props {
 export const Detail: React.FC<Props> = (props) => {
   const { member } = props;
   return (
-    <div>
+    <div className="detail-component">
       <h1>Detail page</h1>
       <img src={member.avatarUrl} />
       <p> id: {member.id}</p>

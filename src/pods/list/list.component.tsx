@@ -5,6 +5,7 @@ import { routes, FilterContext } from "@/core";
 import { useMembers } from "./list.hooks";
 import { MemberEntity } from "./list.vm";
 import { ListHeader } from "./components";
+import { ListCharacters } from "./components"
 
 interface Props {
   members: MemberEntity[];
@@ -14,7 +15,6 @@ export const List: React.FC<Props> = (props) => {
   const { organizationName, setOrganizationName } = React.useContext(FilterContext);
   const [, setFilter] = React.useState("");
   const { members } = useMembers(organizationName);
-  const {} = props;
   return (
     <>
       <h1>List page</h1>
@@ -26,14 +26,8 @@ export const List: React.FC<Props> = (props) => {
         }}
       />
       <div className="list-user-list-container">
-      <ListHeader />
-        {members.map((member) => (
-          <React.Fragment key={member.id}>
-            <img src={member.avatarUrl} />
-            <span>{member.id}</span>
-            <Link to={routes.detail(member.login)}>{member.login}</Link>
-          </React.Fragment>
-        ))}
+        <ListHeader />
+        <ListCharacters />
       </div>
     </>
   )

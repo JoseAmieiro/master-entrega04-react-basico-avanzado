@@ -16,8 +16,7 @@ export const DetailContainer: React.FC = () => {
 
   React.useEffect(() => {
     getMember(id).then(member => {
-      const memberVM = mapMemberToVM(member)
-      setMember(memberVM);
+      setMember(mapMemberToVM(member));
     })
   }, [])
 
